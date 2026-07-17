@@ -607,6 +607,10 @@
     }
 
     /* ---------- SPLIT SECTIONS ---------- */
+    .panv-section {
+    height: 60px; /* same height as nav */
+    }
+
     .split {
       padding: clamp(70px, 9vw, 120px) 0
     }
@@ -1588,6 +1592,16 @@
       width: 100%;
       max-width: 100%;
       contain: layout;
+      width: 100%;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      z-index: 50;
+    }
+
+    .pnav.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
     }
 
     .pnav::-webkit-scrollbar {
@@ -2448,7 +2462,7 @@
       <div class="wrap phero__inner">
         <nav class="phero__crumb" aria-label="Breadcrumb">
           <a href="index.html">Home</a>
-          <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg>
           <span>Company Profile</span>
         </nav>
         <h1>Building the Kingdom's<br>MEP &amp; Solar Infrastructure</h1>
@@ -2461,22 +2475,24 @@
     </section>
 
     <!-- ================= SECTION NAV ================= -->
-    <nav class="pnav" id="pnav" aria-label="Company profile sections">
-      <div class="wrap">
-        <a href="#overview">Overview</a>
-        <a href="#vision-mission">Vision &amp; Mission</a>
-        <a href="#quality">Quality Policy</a>
-        <a href="#hse">Health, Safety &amp; Environment</a>
-        <a href="#team">Specialist Team</a>
-        <a href="#activities">Main Activities</a>
-        <a href="#clients">Clients</a>
-        <a href="#partners">Suppliers &amp; Partners</a>
-        <a href="#certificates">Certificates</a>
-        <a href="#projects">Projects</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#solar">WAMEST Solar</a>
-      </div>
-    </nav>
+    <section class="panv-section" id="panv-section"> <nav class="pnav" id="pnav"
+        aria-label="Company profile sections">
+        <div class="wrap">
+          <a href="#overview">Overview</a>
+          <a href="#vision-mission">Vision &amp; Mission</a>
+          <a href="#quality">Quality Policy</a>
+          <a href="#hse">Health, Safety &amp; Environment</a>
+          <a href="#team">Specialist Team</a>
+          <a href="#activities">Main Activities</a>
+          <a href="#clients">Clients</a>
+          <a href="#partners">Suppliers &amp; Partners</a>
+          <a href="#certificates">Certificates</a>
+          <a href="#projects">Projects</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#solar">WAMEST Solar</a>
+        </div>
+      </nav>
+    </section>
 
     <!-- ================= OVERVIEW ================= -->
     <section class="psec" id="overview">
@@ -3533,6 +3549,19 @@
         }
       }));
     }
+
+      const nav2 = document.getElementById('pnav');
+      const navSection = document.getElementById('panv-section');
+
+      const navTop = navSection.offsetTop;
+
+      window.addEventListener('scroll', () => {
+          if (window.scrollY >= navTop) {
+              nav2.classList.add('fixed');
+          } else {
+              nav2.classList.remove('fixed');
+          }
+      });
   </script>
 
   </body>
