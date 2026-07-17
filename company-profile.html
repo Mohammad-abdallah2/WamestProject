@@ -41,6 +41,12 @@
       scroll-behavior: smooth
     }
 
+    html,
+    body {
+      overflow-x: hidden;
+      max-width: 100%
+    }
+
     /* ---------- PAGE LOADER ---------- */
     .pageload {
       position: fixed;
@@ -1570,6 +1576,9 @@
       border-bottom: 1px solid var(--line);
       overflow-x: auto;
       scrollbar-width: none;
+      width: 100%;
+      max-width: 100%;
+      contain: layout;
     }
 
     .pnav::-webkit-scrollbar {
@@ -1580,7 +1589,9 @@
       display: flex;
       gap: 4px;
       padding-top: 0;
-      padding-bottom: 0
+      padding-bottom: 0;
+      width: max-content;
+      min-width: 100%
     }
 
     .pnav a {
@@ -3286,40 +3297,6 @@
       burger.setAttribute('aria-expanded', 'false');
     }));
 
-    /* ---- hero slider ---- */
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.hero__dots button');
-    let i = 0, timer;
-
-    function go(n) {
-      i = (n + slides.length) % slides.length;
-      slides.forEach((s, x) => s.classList.toggle('is-active', x === i));
-      dots.forEach((d, x) => d.setAttribute('aria-selected', x === i));
-      restart();
-    }
-    function restart() {
-      clearInterval(timer);
-      timer = setInterval(() => go(i + 1), 6500);
-    }
-    document.getElementById('next').addEventListener('click', () => go(i + 1));
-    document.getElementById('prev').addEventListener('click', () => go(i - 1));
-    dots.forEach((d, x) => d.addEventListener('click', () => go(x)));
-
-    /* pause when off-screen */
-    const hero = document.getElementById('hero');
-    new IntersectionObserver(([e]) => e.isIntersecting ? restart() : clearInterval(timer))
-      .observe(hero);
-
-    /* swipe */
-    let sx = 0;
-    hero.addEventListener('touchstart', e => sx = e.touches[0].clientX, { passive: true });
-    hero.addEventListener('touchend', e => {
-      const dx = e.changedTouches[0].clientX - sx;
-      if (Math.abs(dx) > 50) go(dx < 0 ? i + 1 : i - 1);
-    }, { passive: true });
-
-    restart();
-
     /* ---- scroll reveal (IntersectionObserver) ---- */
     const revealEls = document.querySelectorAll('[data-reveal],[data-stagger],.partners');
     const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
@@ -3338,8 +3315,22 @@
             obs.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.18, rootMargin: '0px 0px -60px 0px' });
+      }, { threshold: 0.02, rootMargin: '200px 0px -20px 0px' });
       revealEls.forEach(el => io.observe(el));
+
+      /* fallback safety net: catch anything the observer missed (fast/programmatic scrolls) */
+      setInterval(() => {
+        revealEls.forEach(el => {
+          if (!el.classList.contains('in-view')) {
+            const r = el.getBoundingClientRect();
+            if (r.top < window.innerHeight + 200 && r.bottom > -200) {
+              el.classList.add('in-view');
+              el.querySelectorAll('.stat b[data-count]').forEach(runCount);
+              io.unobserve(el);
+            }
+          }
+        });
+      }, 400);
     }
 
     /* ---- animated counters ---- */
