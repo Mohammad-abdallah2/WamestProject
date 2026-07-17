@@ -1541,31 +1541,39 @@
       animation: rise .7s cubic-bezier(.2, .7, .3, 1) .34s both
     }
 
-    .phero__meta {
+    .phero__crumb {
       display: flex;
-      gap: 28px;
-      flex-wrap: wrap;
-      margin-top: 26px;
-      animation: rise .7s cubic-bezier(.2, .7, .3, 1) .46s both
-    }
-
-    .phero__meta div {
-      display: flex;
-      flex-direction: column;
-      gap: 2px
-    }
-
-    .phero__meta b {
+      align-items: center;
+      gap: 8px;
       font-family: var(--display);
-      font-size: 26px;
-      color: var(--teal-light)
+      font-size: 13px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #C6C6C4;
+      margin-bottom: 18px;
+      animation: rise .7s cubic-bezier(.2, .7, .3, 1) .02s both;
     }
 
-    .phero__meta span {
-      font-size: 11.5px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: #B9B9B7
+    .phero__crumb a {
+      color: #C6C6C4;
+      transition: color .2s;
+    }
+
+    .phero__crumb a:hover {
+      color: var(--teal-light);
+    }
+
+    .phero__crumb span {
+      color: var(--teal-light);
+    }
+
+    .phero__crumb svg {
+      width: 12px;
+      height: 12px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      flex: none;
     }
 
     /* ---- sticky section nav ---- */
@@ -2438,19 +2446,17 @@
         alt="WAMEST construction crew working at sunset on a project site">
       <div class="phero__scrim"></div>
       <div class="wrap phero__inner">
-        <div class="eyebrow">Company Profile</div>
+        <nav class="phero__crumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+          <span>Company Profile</span>
+        </nav>
         <h1>Building the Kingdom's<br>MEP &amp; Solar Infrastructure</h1>
         <p>Wahat Al-Mansouria for Contracting &amp; Maintenance (WAMEST) — a
           Saudi-based Construction and MEP Engineering
           contractor delivering total solutions across Mechanical, Electrical,
           Plumbing, Civil, and Renewable Energy
           works.</p>
-        <div class="phero__meta">
-          <div><b>ISO 9001:2015</b><span>Certified QMS</span></div>
-          <div><b>Aramco</b><span>Registered Vendor</span></div>
-          <div><b>KSA · UAE · Kuwait · Jordan</b><span>Regional
-              Footprint</span></div>
-        </div>
       </div>
     </section>
 
