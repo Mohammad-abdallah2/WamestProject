@@ -30,6 +30,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
+html,body{overflow-x:hidden;max-width:100%}
 
 /* ---------- PAGE LOADER ---------- */
 .pageload{
@@ -255,6 +256,68 @@ h2.sec-title{
   position:relative;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+}
+
+/* ---------- OUR PROJECTS ---------- */
+.projects{padding:clamp(64px,8vw,100px) 0;background:var(--paper)}
+.projects__head{text-align:center;margin-bottom:54px}
+.projects__head .eyebrow{justify-content:center}
+.projects__head p{color:var(--muted);max-width:56ch;margin:0 auto}
+
+.projects__viewport{overflow:hidden}
+.projects__track{
+  display:flex;gap:28px;
+  transition:transform .6s cubic-bezier(.65,0,.35,1);
+  will-change:transform;
+}
+.pcard{
+  flex:0 0 calc((100% - 56px) / 3);
+  background:#fff;border:1px solid var(--line);
+  display:flex;flex-direction:column;overflow:hidden;
+  transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s;
+}
+.pcard:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(0,0,0,.1)}
+.pcard__media{display:block;position:relative;aspect-ratio:16/10;overflow:hidden}
+.pcard__media img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.16,.7,.3,1)}
+.pcard:hover .pcard__media img{transform:scale(1.08)}
+.pcard__body{padding:24px 26px 28px;display:flex;flex-direction:column;flex:1}
+.pcard__date{
+  font-family:var(--display);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--teal-dark);margin-bottom:10px;
+}
+.pcard__title{font-family:var(--display);font-size:22px;text-transform:uppercase;letter-spacing:.02em;margin-bottom:10px;line-height:1.1}
+.pcard__title a{color:var(--charcoal-deep);transition:color .2s}
+.pcard__title a:hover{color:var(--teal-dark)}
+.pcard__brief{color:var(--muted);font-size:14px;line-height:1.65;margin-bottom:20px;flex:1}
+.pcard__link{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--display);font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--teal-dark);width:fit-content;
+}
+.pcard__link svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;transition:transform .25s}
+.pcard__link:hover svg{transform:translateX(4px)}
+
+.projects__nav{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:40px}
+.projects__arrow{
+  width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;
+  display:grid;place-items:center;cursor:pointer;color:var(--charcoal-deep);
+  transition:background .25s,border-color .25s,color .25s;
+}
+.projects__arrow:hover{background:var(--teal);border-color:var(--teal);color:#fff}
+.projects__arrow svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2}
+.projects__dots{display:flex;gap:9px}
+.projects__dots button{
+  width:9px;height:9px;border-radius:50%;background:var(--line);border:0;padding:0;cursor:pointer;
+  transition:background .25s,transform .25s;
+}
+.projects__dots button.is-active{background:var(--teal);transform:scale(1.25)}
+
+@media (max-width:1024px){
+  .pcard{flex:0 0 calc((100% - 28px) / 2)}
+}
+@media (max-width:680px){
+  .pcard{flex:0 0 100%}
+  .projects__track{gap:20px}
 }
 
 /* ---------- FOOTER ---------- */
@@ -750,7 +813,118 @@ h2.sec-title{
       </div>
     </section>
 
-    <!-- ================= BACK TO TOP ================= -->
+    <!-- ================= OUR PROJECTS ================= -->
+    <section class="projects" id="projects">
+      <div class="wrap projects__head" data-reveal data-stagger>
+        <div class="eyebrow">Our Work</div>
+        <h2 class="sec-title">Our Projects</h2>
+        <p>A selection of contracts delivered for government authorities, industrial operators and private developers across the Kingdom.</p>
+      </div>
+
+      <div class="wrap">
+        <div class="projects__viewport">
+          <div class="projects__track" id="projectsTrack">
+
+            <article class="pcard">
+              <a class="pcard__media" href="company-profile.html#projects">
+                <img src="assets/gallery-2.webp" alt="Riyadh Boulevard project site" loading="lazy">
+              </a>
+              <div class="pcard__body">
+                <span class="pcard__date">Feb 2024</span>
+                <h3 class="pcard__title"><a href="company-profile.html#projects">Riyadh Boulevard</a></h3>
+                <p class="pcard__brief">Lighting and landscape works delivered for Sela Sports Company across the Riyadh Boulevard entertainment district.</p>
+                <a class="pcard__link" href="company-profile.html#projects">Show More
+                  <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="pcard">
+              <a class="pcard__media" href="company-profile.html#projects">
+                <img src="assets/gallery-2.webp" alt="Dammam Airport MEP works" loading="lazy">
+              </a>
+              <div class="pcard__body">
+                <span class="pcard__date">Sep 2023</span>
+                <h3 class="pcard__title"><a href="company-profile.html#projects">Dammam Airport — KFIA</a></h3>
+                <p class="pcard__brief">MEP installation for VANDERLANDE at King Fahad International Airport's baggage handling infrastructure.</p>
+                <a class="pcard__link" href="company-profile.html#projects">Show More
+                  <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="pcard">
+              <a class="pcard__media" href="company-profile.html#projects">
+                <img src="assets/gallery-2.webp" alt="Jizan Generator Power Plant" loading="lazy">
+              </a>
+              <div class="pcard__body">
+                <span class="pcard__date">Jun 2023</span>
+                <h3 class="pcard__title"><a href="company-profile.html#projects">Jizan Generator Power Plant</a></h3>
+                <p class="pcard__brief">Full-scope generator power plant construction and commissioning in Jizan, KSA.</p>
+                <a class="pcard__link" href="company-profile.html#projects">Show More
+                  <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="pcard">
+              <a class="pcard__media" href="company-profile.html#projects">
+                <img src="assets/gallery-2.webp" alt="Ministry of Health clinics group" loading="lazy">
+              </a>
+              <div class="pcard__body">
+                <span class="pcard__date">Nov 2022</span>
+                <h3 class="pcard__title"><a href="company-profile.html#projects">MOH Clinics Group</a></h3>
+                <p class="pcard__brief">Group of clinics delivered for the Ministry of Health across Kholais, Zulum and Thar.</p>
+                <a class="pcard__link" href="company-profile.html#projects">Show More
+                  <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="pcard">
+              <a class="pcard__media" href="company-profile.html#projects">
+                <img src="assets/gallery-2.webp" alt="Taqnia Solar Energy project" loading="lazy">
+              </a>
+              <div class="pcard__body">
+                <span class="pcard__date">Apr 2022</span>
+                <h3 class="pcard__title"><a href="company-profile.html#projects">Taqnia Solar Energy</a></h3>
+                <p class="pcard__brief">Solar EPC works for Taqnia Energy in Al Aflaj, part of WAMEST's renewable energy division.</p>
+                <a class="pcard__link" href="company-profile.html#projects">Show More
+                  <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="pcard">
+              <a class="pcard__media" href="company-profile.html#projects">
+                <img src="assets/gallery-2.webp" alt="Saudi Cup lighting and infrastructure" loading="lazy">
+              </a>
+              <div class="pcard__body">
+                <span class="pcard__date">Jan 2022</span>
+                <h3 class="pcard__title"><a href="company-profile.html#projects">Saudi Cup</a></h3>
+                <p class="pcard__brief">Event infrastructure and lighting delivered for Saudi Geo at the Saudi Cup, Riyadh.</p>
+                <a class="pcard__link" href="company-profile.html#projects">Show More
+                  <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <div class="projects__nav">
+          <button class="projects__arrow" id="projectsPrev" aria-label="Previous projects">
+            <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>
+          </button>
+          <div class="projects__dots" id="projectsDots"></div>
+          <button class="projects__arrow" id="projectsNext" aria-label="Next projects">
+            <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+
     <button class="totop" id="totop" aria-label="Back to top">
       <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7" /></svg>
     </button>
@@ -851,6 +1025,101 @@ const onTopScroll = () => totop.classList.toggle('is-visible', window.scrollY > 
 onTopScroll();
 window.addEventListener('scroll', onTopScroll, { passive:true });
 totop.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+
+/* ---- our projects slider ---- */
+(() => {
+  const track = document.getElementById('projectsTrack');
+  const dotsWrap = document.getElementById('projectsDots');
+  const prevBtn = document.getElementById('projectsPrev');
+  const nextBtn = document.getElementById('projectsNext');
+  if (!track) return;
+
+  const cards = Array.from(track.children);
+  const total = cards.length;
+  let perView = 3;
+  let index = 0;
+  let timer;
+
+  function getPerView() {
+    const w = window.innerWidth;
+    if (w <= 680) return 1;
+    if (w <= 1024) return 2;
+    return 3;
+  }
+
+  function maxIndex() {
+    return Math.max(0, total - perView);
+  }
+
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    const pages = maxIndex() + 1;
+    for (let i = 0; i < pages; i++) {
+      const b = document.createElement('button');
+      b.setAttribute('aria-label', `Go to project ${i + 1}`);
+      b.addEventListener('click', () => { goTo(i); restart(); });
+      dotsWrap.appendChild(b);
+    }
+    updateDots();
+  }
+
+  function updateDots() {
+    Array.from(dotsWrap.children).forEach((d, i) => d.classList.toggle('is-active', i === index));
+  }
+
+  function render() {
+    const cardWidth = cards[0].getBoundingClientRect().width;
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+    track.style.transform = `translateX(-${index * (cardWidth + gap)}px)`;
+    updateDots();
+  }
+
+  function goTo(i) {
+    index = Math.min(Math.max(i, 0), maxIndex());
+    render();
+  }
+
+  function next() {
+    index = index >= maxIndex() ? 0 : index + 1;
+    render();
+  }
+
+  function prev() {
+    index = index <= 0 ? maxIndex() : index - 1;
+    render();
+  }
+
+  function restart() {
+    clearInterval(timer);
+    timer = setInterval(next, 5000);
+  }
+
+  function setup() {
+    const newPerView = getPerView();
+    if (newPerView !== perView) {
+      perView = newPerView;
+      index = Math.min(index, maxIndex());
+      buildDots();
+    }
+    render();
+  }
+
+  nextBtn.addEventListener('click', () => { next(); restart(); });
+  prevBtn.addEventListener('click', () => { prev(); restart(); });
+  window.addEventListener('resize', setup, { passive:true });
+
+  /* pause on hover, resume on leave */
+  const section = document.getElementById('projects');
+  section.addEventListener('mouseenter', () => clearInterval(timer));
+  section.addEventListener('mouseleave', restart);
+
+  /* pause when off-screen */
+  new IntersectionObserver(([e]) => e.isIntersecting ? restart() : clearInterval(timer))
+    .observe(section);
+
+  buildDots();
+  setup();
+})();
 
 /* ---- mobile menu ---- */
 const burger = document.getElementById('burger');
