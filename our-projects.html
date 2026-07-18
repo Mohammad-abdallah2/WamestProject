@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Company's Profile — WAMEST Construction &amp; MEP Engineering</title>
+    <title>Our Projects — WAMEST Construction &amp; MEP Engineering</title>
     <link rel="icon" type="image/x-icon" href="assets/logo (1).ico">
     <meta name="description"
-      content="WAMEST company profile: overview, vision &amp; mission, quality and HSE policy, specialist team, main activities, certificates, projects and WAMEST Solar.">
+      content="WAMEST projects: a full listing of contracting, MEP, and solar EPC projects delivered across Saudi Arabia.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -2410,6 +2410,216 @@
       background: #fff;
       color: var(--teal)
     }
+
+    /* ================= OUR PROJECTS PAGE ================= */
+    .pgrid-section {
+      padding: clamp(56px, 7vw, 96px) 0;
+      background: var(--paper);
+    }
+
+    .pgrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 8px;
+    }
+
+    .pcard {
+      background: #fff;
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: transform .35s cubic-bezier(.2, .7, .3, 1), box-shadow .35s;
+    }
+
+    .pcard:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 44px rgba(0, 0, 0, .1);
+    }
+
+    .pcard__media {
+      display: block;
+      position: relative;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+    }
+
+    .pcard__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s cubic-bezier(.16, .7, .3, 1);
+    }
+
+    .pcard:hover .pcard__media img {
+      transform: scale(1.08);
+    }
+
+    .pcard__body {
+      padding: 24px 26px 28px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .pcard__date {
+      font-family: var(--display);
+      font-size: 12.5px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      margin-bottom: 10px;
+    }
+
+    .pcard__title {
+      font-family: var(--display);
+      font-size: 22px;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      margin-bottom: 10px;
+      line-height: 1.1;
+    }
+
+    .pcard__title a {
+      color: var(--charcoal-deep);
+      transition: color .2s;
+    }
+
+    .pcard__title a:hover {
+      color: var(--teal-dark);
+    }
+
+    .pcard__brief {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .pcard__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--display);
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      width: fit-content;
+    }
+
+    .pcard__link svg {
+      width: 15px;
+      height: 15px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      transition: transform .25s;
+    }
+
+    .pcard__link:hover svg {
+      transform: translateX(4px);
+    }
+
+    .pager {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 56px;
+      flex-wrap: wrap;
+    }
+
+    .pager__arrow {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: #fff;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      color: var(--charcoal-deep);
+      transition: background .25s, border-color .25s, color .25s;
+    }
+
+    .pager__arrow:hover:not(:disabled) {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: #fff;
+    }
+
+    .pager__arrow:disabled {
+      opacity: .35;
+      cursor: not-allowed;
+    }
+
+    .pager__arrow svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+    }
+
+    .pager__pages {
+      display: flex;
+      gap: 8px;
+    }
+
+    .pager__pages button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: #fff;
+      cursor: pointer;
+      font-family: var(--display);
+      font-size: 14px;
+      color: var(--charcoal-deep);
+      transition: background .25s, border-color .25s, color .25s;
+    }
+
+    .pager__pages button:hover {
+      border-color: var(--teal);
+      color: var(--teal-dark);
+    }
+
+    .pager__pages button.is-active {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: #fff;
+    }
+
+    .pgrid[data-animating] .pcard {
+      animation: pcardIn .5s cubic-bezier(.2, .7, .3, 1) both;
+    }
+
+    @keyframes pcardIn {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (max-width:1024px) {
+      .pgrid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width:680px) {
+      .pgrid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
   </head>
 
@@ -2436,9 +2646,9 @@
           <a href="index.html">Home</a>
           <a href="index.html#about">About Us</a>
           <a href="index.html#services">Services</a>
-          <a href="company-profile.html" aria-current="page">Company's
+          <a href="company-profile.html">Company's
             Profile</a>
-          <a href="our-projects.html">Our Projects</a>
+          <a href="our-projects.html" aria-current="page">Our Projects</a>
           <a href="index.html#team">Team</a>
           <a href="index.html#contact">Contact</a>
         </nav>
@@ -2453,888 +2663,236 @@
       </div>
     </header>
 
-    <!-- ================= PROFILE HERO ================= -->
+    <!-- ================= PROJECTS HERO ================= -->
     <section class="phero">
-      <img class="phero__img" src="assets/gallery-1.webp"
-        alt="WAMEST construction crew working at sunset on a project site">
+      <img class="phero__img" src="assets/gallery-3.webp"
+        alt="WAMEST crew working on an airfield project site">
       <div class="phero__scrim"></div>
       <div class="wrap phero__inner">
         <nav class="phero__crumb" aria-label="Breadcrumb">
           <a href="index.html">Home</a>
           <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg>
-          <span>Company Profile</span>
+          <span>Our Projects</span>
         </nav>
-        <h1>Building the Kingdom's<br>MEP &amp; Solar Infrastructure</h1>
-        <p>Wahat Al-Mansouria for Contracting &amp; Maintenance (WAMEST) — a
-          Saudi-based Construction and MEP Engineering
-          contractor delivering total solutions across Mechanical, Electrical,
-          Plumbing, Civil, and Renewable Energy
-          works.</p>
+        <h1>Contracts Delivered<br>Across the Kingdom</h1>
+        <p>A full listing of WAMEST's Mechanical, Electrical, Plumbing, Civil, and Solar EPC
+          projects — delivered for government authorities, industrial operators, and private
+          developers across Saudi Arabia.</p>
       </div>
     </section>
 
-    <!-- ================= SECTION NAV ================= -->
-    <section class="panv-section" id="panv-section"> <nav class="pnav" id="pnav"
-        aria-label="Company profile sections">
-        <div class="wrap">
-          <a href="#overview">Overview</a>
-          <a href="#vision-mission">Vision &amp; Mission</a>
-          <a href="#quality">Quality Policy</a>
-          <a href="#hse">Health, Safety &amp; Environment</a>
-          <a href="#team">Specialist Team</a>
-          <a href="#activities">Main Activities</a>
-          <a href="#clients">Clients</a>
-          <a href="#partners">Suppliers &amp; Partners</a>
-          <a href="#certificates">Certificates</a>
-          <a href="#projects">Projects</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#solar">WAMEST Solar</a>
-        </div>
-      </nav>
-    </section>
-
-    <!-- ================= OVERVIEW ================= -->
-    <section class="psec" id="overview">
+    <!-- ================= PROJECTS GRID ================= -->
+    <section class="pgrid-section" id="projects-grid">
       <div class="wrap">
         <div class="psec__head" data-reveal>
-          <div class="eyebrow">Introduction</div>
-          <h2 class="sec-title">Overview</h2>
+          <div class="eyebrow">Our Work</div>
+          <h2 class="sec-title">All Projects</h2>
+          <p>Browse WAMEST's full project history — filter through the pages below to see
+            more of our work across the Kingdom.</p>
         </div>
-        <div class="pcols" data-reveal data-stagger>
-          <div>
-            <p>At <strong>WAMEST</strong>, our commitment to our clients is our
-              top priority. We spare no expense in
-              delivering the best services using the finest tools and safest
-              methods to deliver them. The Company's strong
-              reverse engineering capability — an absolute necessity in an
-              effective organization — enables WAMEST to
-              provide cost-effective solutions with a faster turnaround and
-              market-leading quality.</p>
-            <p>With our procurement and logistics services, WAMEST constantly
-              enhances and develops precise specifications
-              and pre-qualifies suppliers to ensure reliable delivery for all
-              contracted jobs.</p>
-          </div>
-          <div>
-            <p>WAMEST has gained a trustable reputation in the field of
-              Mechanical, Electrical and Plumbing (MEP) in the
-              Saudi market, having developed a technical and engineering
-              manpower with high experience through adopting
-              the latest technology solutions to serve its clients. With almost
-              two decades of experience, WAMEST has
-              distinguished itself with year-on-year improvement in quality to
-              achieve success.</p>
-            <p>WAMEST's experience covers multiple sectors of the construction
-              industry including airfields, hotels,
-              hospitals, commercial and residential towers, universities, and
-              HV/MV substations across the Kingdom of
-              Saudi Arabia. In line with Vision 2030, WAMEST has established a
-              specialized division to provide integrated
-              solutions in the field of renewable energy and energy
-              efficacy.</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ================= VISION & MISSION ================= -->
-    <section class="psec psec--alt" id="vision-mission">
-      <div class="wrap">
-        <div class="psec__head" data-reveal>
-          <div class="eyebrow">Where We're Headed</div>
-          <h2 class="sec-title">Vision &amp; Mission</h2>
-        </div>
-        <div class="vmgrid" data-reveal data-stagger>
-          <div class="vmcard">
-            <h3>Our Vision</h3>
-            <p style="color:var(--muted);font-size:14.5px">WAMEST aims to be the
-              leading destination for Mechanical,
-              Electrical, Plumbing, Energy &amp; Power Company in the Kingdom of
-              Saudi Arabia by continuing to deliver
-              Construction Excellence and expand its reach within the
-              Kingdom.</p>
-          </div>
-          <div class="vmcard">
-            <h3>Our Mission</h3>
-            <ul>
-              <li>To be a "Total Solution" provider for all Mechanical,
-                Electrical and Plumbing (MEP) works including ELV
-                systems, renewable energy generation (such as Solar Power),
-                conventional power generation and
-                transmission, and MEP works for specialized projects.</li>
-              <li>Become a market leader in the field of renewable Solar Power
-                as an EPC contractor in KSA in
-                collaboration with our proprietary Technology Partner.</li>
-              <li>Contribute to the promising future of the national
-                transformation program 2020 and the Vision of the
-                Kingdom in 2030.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+        <div class="pgrid" id="pgrid">
 
-    <!-- ================= QUALITY POLICY ================= -->
-    <section class="psec" id="quality">
-      <div class="wrap">
-        <div class="ppolicy">
-          <div class="ppolicy__media" data-reveal="left">
-            <img src="assets/profile-quality.webp"
-              alt="Technician servicing an electrical distribution panel">
-          </div>
-          <div class="ppolicy__body" data-reveal="right" data-stagger>
-            <div class="eyebrow">Our Quality Policy</div>
-            <h2 class="sec-title">Excellence, sustained</h2>
-            <p>WAMEST believes that quality is an intrinsic element of the
-              organization. We aim to exceed our customers'
-              expectations without compromising on compliance and the quality of
-              our products and services. We strive to
-              achieve and sustain excellence in our businesses by continually
-              improving our Quality Management System, and
-              by creating and leveraging strategic business partnerships to
-              ensure optimum business performance.</p>
-            <p>WAMEST developed a quality management system that conforms to
-              international standard requirements. The
-              principle of total quality management, especially continuous
-              improvement, is applied to every aspect of our
-              activities.</p>
-            <p>This quality policy provides the framework for establishing
-              quality objectives which are integrated into
-              the company's strategic plan, in accordance with the international
-              standard <strong>ISO 9001</strong> to
-              meet the requirements for a Quality Management System (QMS).</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= HEALTH, SAFETY & ENVIRONMENT ================= -->
-    <section class="psec psec--dark" id="hse">
-      <div class="wrap">
-        <div class="ppolicy ppolicy--flip">
-          <div class="ppolicy__media" data-reveal="right">
-            <img src="assets/profile-hse.webp"
-              alt="Personal protective equipment laid out on site — helmets, gloves and goggles">
-          </div>
-          <div class="ppolicy__body" data-reveal="left" data-stagger>
-            <div class="eyebrow">Policy</div>
-            <h2 class="sec-title">Health, Safety<br>&amp; Environment</h2>
-            <p>WAMEST's Health and Safety Management System Plan outlines how to
-              manage, mitigate and prevent potential
-              incidents associated with the fabrication, installation and
-              commissioning of the Project's scope of work.
-            </p>
-            <p>The Health and Safety Management System is established to control
-              all Health and Safety aspects related to
-              the Project, consistent with WAMEST's Health and Safety commitment
-              of a <strong style="color:#fff">"Zero
-                Incidents Policy."</strong> Resources are identified and made
-              available by WAMEST to ensure Health and
-              Safety integrity is maintained at the highest standard in places
-              of work.</p>
-            <p>We are committed to undertaking Project works safely so that at
-              any given time, all individuals on site are
-              safely out of harm's way — in accordance with the Employer's
-              Requirements, best HSE practices and standards,
-              and in full compliance with KSA law and regulatory requirements.
-              WAMEST's HSE staff are always present at
-              all active construction sites.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= SPECIALIST TEAM ================= -->
-    <section class="psec psec--alt" id="team">
-      <div class="wrap">
-        <div class="psec__head" data-reveal>
-          <div class="eyebrow">Meet Our Specialist Team</div>
-          <h2 class="sec-title">The people behind every project</h2>
-          <p>WAMEST boasts a fine staff of experienced engineers and skilled
-            experts and technicians who bring their
-            knowledge to execute our construction services at the highest
-            quality within a safe environment, at reasonable
-            cost.</p>
-        </div>
-        <div class="teamgrid" data-reveal data-stagger>
-          <div class="teamgrid__item">
-            <div class="teamgrid__hex"><img src="assets/gallery-4.webp"
-                alt="Engineer inspecting an electrical control panel"></div>
-            <span>Engineers</span>
-          </div>
-          <div class="teamgrid__item">
-            <div class="teamgrid__hex"><img src="assets/gallery-6.webp"
-                alt="Heavy equipment in operation on a project site"></div>
-            <span>Equipment</span>
-          </div>
-          <div class="teamgrid__item">
-            <div class="teamgrid__hex"><img src="assets/gallery-5.webp"
-                alt="Supervisors reviewing installation work">
+          <!-- 1 -->
+          <article class="pcard" data-page="1">
+            <a class="pcard__media" href="company-profile.html#projects">
+              <img src="assets/gallery-1.webp" alt="Formula One event infrastructure, Jeddah" loading="lazy">
+            </a>
+            <div class="pcard__body">
+              <span class="pcard__date">Client: Blink Event Management Company</span>
+              <h3 class="pcard__title"><a href="company-profile.html#projects">Formula One</a></h3>
+              <p class="pcard__brief">Event infrastructure works delivered in Jeddah, KSA.</p>
+              <a class="pcard__link" href="company-profile.html#projects">Show More
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
             </div>
-            <span>Supervisors</span>
-          </div>
-          <div class="teamgrid__item">
-            <div class="teamgrid__hex"><img src="assets/gallery-2.webp"
-                alt="Labourer at work on a project site"></div>
-            <span>Labourers</span>
-          </div>
-          <div class="teamgrid__item">
-            <div class="teamgrid__hex"><img src="assets/gallery-3.webp"
-                alt="Technician performing installation work">
+          </article>
+
+          <!-- 2 -->
+          <article class="pcard" data-page="1">
+            <a class="pcard__media" href="company-profile.html#projects">
+              <img src="assets/gallery-2.webp" alt="Riyadh Boulevard lighting and landscape project" loading="lazy">
+            </a>
+            <div class="pcard__body">
+              <span class="pcard__date">Client: Sela Sports Company</span>
+              <h3 class="pcard__title"><a href="company-profile.html#projects">Riyadh Boulevard</a></h3>
+              <p class="pcard__brief">Lighting and landscape works across the Riyadh Boulevard entertainment district.</p>
+              <a class="pcard__link" href="company-profile.html#projects">Show More
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
             </div>
-            <span>Technicians</span>
-          </div>
-        </div>
-      </div>
-    </section>
+          </article>
 
-    <!-- ================= MAIN ACTIVITIES ================= -->
-    <section class="psec" id="activities">
-      <div class="wrap">
-        <div class="psec__head" data-reveal>
-          <div class="eyebrow">What We Do</div>
-          <h2 class="sec-title">Main Activities</h2>
-        </div>
-
-        <h3
-          style="font-family:var(--display);font-size:20px;text-transform:uppercase;letter-spacing:.04em;color:var(--charcoal-deep);border-bottom:2px solid var(--teal);display:inline-block;padding-bottom:6px;margin-bottom:6px"
-          data-reveal>Construction</h3>
-        <div class="actgrid" data-reveal data-stagger>
-          <div class="actcard">
-            <div class="actcard__icon"><svg viewBox="0 0 24 24">
-                <path d="M4 8h16M4 8v11h16V8M4 8l3-4h10l3 4M9 21v-5h6v5" />
-              </svg></div>
-            <h4>Plumbing</h4>
-            <p>Piping with necessary fittings, installation of sanitary, water
-              and drainage systems in and around project
-              sites.</p>
-          </div>
-          <div class="actcard">
-            <div class="actcard__icon"><svg viewBox="0 0 24 24">
-                <path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" />
-              </svg></div>
-            <h4>Electrical</h4>
-            <p>Power generation systems, low voltage and low current works, fire
-              alarm and security systems including
-              lighting and building management systems.</p>
-          </div>
-          <div class="actcard">
-            <div class="actcard__icon"><svg viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="3" />
-                <path
-                  d="M19.4 15a1.7 1.7 0 00.3 1.9l.1.1a2 2 0 11-2.9 2.9l-.1-.1a1.7 1.7 0 00-1.9-.3 1.7 1.7 0 00-1 1.6V21a2 2 0 11-4 0v-.1a1.7 1.7 0 00-1-1.6 1.7 1.7 0 00-1.9.3l-.1.1a2 2 0 11-2.9-2.9l.1-.1a1.7 1.7 0 00.3-1.9 1.7 1.7 0 00-1.6-1H3a2 2 0 110-4h.1a1.7 1.7 0 001.6-1 1.7 1.7 0 00-.3-1.9l-.1-.1a2 2 0 112.9-2.9l.1.1a1.7 1.7 0 001.9.3H9a1.7 1.7 0 001-1.6V3a2 2 0 114 0v.1a1.7 1.7 0 001 1.6 1.7 1.7 0 001.9-.3l.1-.1a2 2 0 112.9 2.9l-.1.1a1.7 1.7 0 00-.3 1.9V9a1.7 1.7 0 001.6 1H21a2 2 0 110 4h-.1a1.7 1.7 0 00-1.6 1z" />
-              </svg></div>
-            <h4>Mechanical</h4>
-            <p>Heating, ventilation and air conditioning (HVAC) with all related
-              duct workings, firefighting systems,
-              vacuum and compressed air systems.</p>
-          </div>
-          <div class="actcard">
-            <div class="actcard__icon"><svg viewBox="0 0 24 24">
-                <path d="M3 21h18M4 21V10l8-6 8 6v11M9 21v-6h6v6" />
-              </svg></div>
-            <h4>Civil</h4>
-            <p>Designing, building and maintaining infrastructure such as
-              buildings, roads and bridges.</p>
-          </div>
-        </div>
-
-        <h3
-          style="font-family:var(--display);font-size:20px;text-transform:uppercase;letter-spacing:.04em;color:var(--charcoal-deep);border-bottom:2px solid var(--teal);display:inline-block;padding-bottom:6px;margin:52px 0 6px"
-          data-reveal>Maintenance</h3>
-        <p class="lede" data-reveal style="margin-bottom:0">Ongoing operations
-          &amp; maintenance across buildings,
-          hospitals, air bases and airfields — covering every system WAMEST
-          installs.</p>
-        <div class="mtgrid" data-reveal data-stagger>
-          <span class="mtbadge"><b></b>Water</span>
-          <span class="mtbadge"><b></b>Irrigation</span>
-          <span class="mtbadge"><b></b>Civil &amp; Road Works</span>
-          <span class="mtbadge"><b></b>Low Voltage</span>
-          <span class="mtbadge"><b></b>Lighting</span>
-          <span class="mtbadge"><b></b>Solar PV</span>
-          <span class="mtbadge"><b></b>Energy Efficiency Services</span>
-          <span class="mtbadge"><b></b>Low Current Systems</span>
-          <span class="mtbadge"><b></b>Fire Fighting System</span>
-          <span class="mtbadge"><b></b>Operations &amp; Maintenance</span>
-          <span class="mtbadge"><b></b>Storms &amp; Sewage</span>
-          <span class="mtbadge"><b></b>Fire Alarm System</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= CLIENTS ================= -->
-    <section class="psec psec--alt" id="clients">
-      <div class="wrap">
-        <div class="ppolicy" style="align-items:flex-start">
-          <div class="ppolicy__media" data-reveal="left"
-            style="align-self:center">
-            <img src="assets/clients-photo.webp"
-              alt="Business handshake representing WAMEST client partnerships">
-          </div>
-          <div data-reveal="right" data-stagger>
-            <div class="eyebrow">Trusted By</div>
-            <h2 class="sec-title">Our Clients</h2>
-            <p class="lede">Developers, industrial operators, ministries and
-              institutions across the Kingdom who bring
-              WAMEST back for the next project.</p>
-            <ul class="plist">
-              <li>Royal Commission for Riyadh City</li>
-              <li>Ministry of Defense</li>
-              <li>Diplomatic Quarter General Authority</li>
-              <li>Vinnell Arabia Aviation</li>
-              <li>TotalEnergies</li>
-              <li>Saline Water Conversion Corporation</li>
-              <li>Ministry of Education</li>
-              <li>Taonia Energy</li>
-              <li>VANDERLANDE</li>
-              <li>King Saud University</li>
-              <li>Tarshid — National Energy Services Company</li>
-              <li>Saudi Electricity Company</li>
-              <li>Sela</li>
-              <li>Ministry of Health</li>
-              <li>SASCO</li>
-              <li>Technology &amp; Security Enterprises</li>
-              <li>Blink Experience</li>
-              <li>Artal PREP Foundation</li>
-              <li>KACST — King Abdulaziz City for Science &amp; Technology</li>
-              <li>Ministry of Higher Education</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= SUPPLIERS & PARTNERS ================= -->
-    <section class="psec" id="partners">
-      <div class="wrap">
-        <div class="ppolicy ppolicy--flip" style="align-items:flex-start">
-          <div class="ppolicy__media" data-reveal="right"
-            style="align-self:center">
-            <img src="assets/suppliers-photo.webp"
-              alt="Shipping containers representing WAMEST global supply chain">
-          </div>
-          <div data-reveal="left" data-stagger>
-            <div class="eyebrow">Our Supply Chain</div>
-            <h2 class="sec-title">Suppliers &amp; Partners</h2>
-            <p class="lede">WAMEST works with world-leading manufacturers across
-              pumps, valves, power tools, HVAC,
-              electrical distribution, and lighting to ensure every project is
-              built with market-leading components.</p>
-            <ul class="plist">
-              <li>Grundfos</li>
-              <li>NIBCO</li>
-              <li>Hilti</li>
-              <li>Caterpillar</li>
-              <li>Clarke</li>
-              <li>Mueller</li>
-              <li>Belden</li>
-              <li>TOTO</li>
-              <li>Stanley</li>
-              <li>Loctite</li>
-              <li>Jotun</li>
-              <li>Hunter</li>
-              <li>Würth</li>
-              <li>Interpipe</li>
-              <li>Legrand</li>
-              <li>Shell</li>
-              <li>Elettra</li>
-              <li>Mitsubishi Electric</li>
-              <li>Trane</li>
-              <li>Viking Johnson</li>
-              <li>Copeland</li>
-              <li>Greenheck</li>
-              <li>Naffco</li>
-              <li>Osram</li>
-              <li>Schneider Electric</li>
-              <li>ADB Safegate</li>
-              <li>Cummins Power Generation</li>
-              <li>A.O. Smith</li>
-              <li>GENT by Honeywell</li>
-              <li>Philips Lighting</li>
-              <li>Station</li>
-              <li>General Electric</li>
-              <li>ABB</li>
-              <li>Ingersoll Rand</li>
-              <li>LG</li>
-              <li>ITCC</li>
-              <li>Carrier</li>
-              <li>Honeywell ESSER</li>
-              <li>Furse</li>
-              <li>Zamil Air Conditioners</li>
-              <li>Yale</li>
-              <li>SFFECO</li>
-              <li>Axis Communications</li>
-              <li>Fosroc</li>
-              <li>MK Electric</li>
-              <li>SKF</li>
-              <li>Sika</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= CERTIFICATES ================= -->
-    <section class="psec psec--alt" id="certificates">
-      <div class="wrap">
-        <div class="psec__head" data-reveal>
-          <div class="eyebrow">Accreditations</div>
-          <h2 class="sec-title">Certificates</h2>
-          <p>WAMEST's Quality Management System is independently assessed and
-            certified, and the company is a fully
-            registered supplier and vendor with the Kingdom's leading
-            operators.</p>
-        </div>
-        <div class="certgrid" data-reveal data-stagger>
-          <div class="certcard">
-            <div class="certcard__icon"><svg viewBox="0 0 24 24">
-                <path
-                  d="M12 2l3 6 6 1-4.5 4.5L17.5 20 12 17l-5.5 3 1-6.5L3 9l6-1 3-6z" />
-              </svg></div>
-            <h4>ISO 9001:2015</h4>
-            <p>Quality Management System certified by BQSR Quality Assurance for
-              construction &amp; maintenance of
-              buildings, electrical &amp; mechanical works, HVAC, low current
-              systems, fire fighting &amp; alarm systems,
-              roads, water networks, landscaping, and solar &amp; energy
-              efficiency works.</p>
-          </div>
-          <div class="certcard">
-            <div class="certcard__icon"><svg viewBox="0 0 24 24">
-                <path d="M12 2L3 6v6c0 5 3.8 9 9 10 5.2-1 9-5 9-10V6l-9-4z" />
-              </svg></div>
-            <h4>Saudi Aramco Registered Vendor</h4>
-            <p>Registered in the Saudi Aramco Supplier Management System,
-              recognized as a supplier carrying all serious
-              obligations and responsibilities under the Saudi Aramco Supplier
-              Code of Conduct.</p>
-          </div>
-          <div class="certcard">
-            <div class="certcard__icon"><svg viewBox="0 0 24 24">
-                <path d="M12 2v20M4.5 7l7.5 5 7.5-5M4.5 17l7.5-5 7.5 5" />
-              </svg></div>
-            <h4>Energy Efficiency Accreditation</h4>
-            <p>Certified consultant for renewable energy and energy efficiency
-              in the field of small &amp; medium
-              regulated solar photovoltaic power schemes, per the Saudi Energy
-              Efficiency Center (Kafa'a).</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= PROJECTS ================= -->
-    <section class="psec" id="projects">
-      <div class="wrap">
-        <div class="psec__head" data-reveal>
-          <div class="eyebrow">Track Record</div>
-          <h2 class="sec-title">List of Main Projects</h2>
-          <p>A selection of contracts delivered for government authorities,
-            industrial operators and private developers
-            across the Kingdom.</p>
-        </div>
-        <div class="ptable-wrap" data-reveal>
-          <table class="ptable">
-            <thead>
-              <tr>
-                <th>Client</th>
-                <th>Project Name</th>
-                <th>Location</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Blink Event Management Company</td>
-                <td>Formula One</td>
-                <td>Jeddah, KSA</td>
-              </tr>
-              <tr>
-                <td>Sela Sports Company</td>
-                <td>Riyadh Boulevard</td>
-                <td>Riyadh, KSA</td>
-              </tr>
-              <tr>
-                <td>MAS Holding Group</td>
-                <td>Artal School</td>
-                <td>Riyadh, KSA</td>
-              </tr>
-              <tr>
-                <td>Saudi Geo</td>
-                <td>Saudi Cup</td>
-                <td>Riyadh, KSA</td>
-              </tr>
-              <tr>
-                <td>Taqnia Energy — SWCC</td>
-                <td>CODECO Cooling System</td>
-                <td>Rastanourah, KSA</td>
-              </tr>
-              <tr>
-                <td>Royal Commission of Riyadh City</td>
-                <td>Several Lighting &amp; Landscape Projects</td>
-                <td>DQ, Riyadh, KSA</td>
-              </tr>
-              <tr>
-                <td>VANDERLANDE</td>
-                <td>Dammam Airport at King Fahad International Airport</td>
-                <td>Dammam, KSA</td>
-              </tr>
-              <tr>
-                <td>IKEA / Total Energies</td>
-                <td>IKEA / Total Energies</td>
-                <td>Riyadh, KSA</td>
-              </tr>
-              <tr>
-                <td>Vinnell Arabia Company</td>
-                <td>Operation &amp; Maintenance of AITD, Heliport Site</td>
-                <td>Riyadh, KSA</td>
-              </tr>
-              <tr>
-                <td>National Energy Services Company</td>
-                <td>Solar &amp; EE Projects</td>
-                <td>KSA</td>
-              </tr>
-              <tr>
-                <td>Princess Al-Anud Administration</td>
-                <td>Al Anud Charity Administration Building</td>
-                <td>Riyadh, KSA</td>
-              </tr>
-              <tr>
-                <td>Diplomatic Quarter General Authority</td>
-                <td>Master Plan Lighting Pilot Project</td>
-                <td>Riyadh, KSA</td>
-              </tr>
-              <tr>
-                <td>Al Bilad Bank</td>
-                <td>Albilad Bank — Electronic University Branch</td>
-                <td>Riyadh, KSA</td>
-              </tr>
-              <tr>
-                <td>Jizan Generator Power Plant</td>
-                <td>Jizan Generator Power Plant</td>
-                <td>Jizan, KSA</td>
-              </tr>
-              <tr>
-                <td>King Saud University</td>
-                <td>Extension of Emergency Building &amp; Medical Supply
-                  Building</td>
-                <td>Riyadh, KSA</td>
-              </tr>
-              <tr>
-                <td>Ministry of Health</td>
-                <td>Group of Clinics of Ministry of Health</td>
-                <td>Kholais, Zulum &amp; Thar, KSA</td>
-              </tr>
-              <tr>
-                <td>J – Equity</td>
-                <td>Onre Hotel</td>
-                <td>Riyadh, KSA</td>
-              </tr>
-              <tr>
-                <td>Vinnell Arabia Company</td>
-                <td>General Maintenance of KAA</td>
-                <td>Khasham Al Aan, KSA</td>
-              </tr>
-              <tr>
-                <td>Taqnia Energy</td>
-                <td>Taqnia Solar Energy</td>
-                <td>Al Aflaj, KSA</td>
-              </tr>
-              <tr>
-                <td>Ministry of Water and Electricity</td>
-                <td>Main Branch Building Offices</td>
-                <td>Riyadh, KSA</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= GALLERY ================= -->
-    <section class="psec psec--alt" id="gallery">
-      <div class="wrap">
-        <div class="psec__head" data-reveal>
-          <div class="eyebrow">On Site</div>
-          <h2 class="sec-title">Gallery</h2>
-          <p>A look at WAMEST crews at work — from pipe fitting and concrete
-            pours to solar installation and airfield
-            lighting.</p>
-        </div>
-        <div class="pgallery" data-reveal data-stagger>
-          <a href="assets/gallery-1.webp" target="_blank" rel="noopener"><img
-              src="assets/gallery-1.webp" loading="lazy"
-              alt="Construction crew working at sunset"></a>
-          <a href="assets/gallery-2.webp" target="_blank" rel="noopener"><img
-              src="assets/gallery-2.webp" loading="lazy"
-              alt="Pipe fitting and concrete works on site"></a>
-          <a href="assets/gallery-3.webp" target="_blank" rel="noopener"><img
-              src="assets/gallery-3.webp" loading="lazy"
-              alt="Airfield marking and equipment installation"></a>
-          <a href="assets/gallery-4.webp" target="_blank" rel="noopener"><img
-              src="assets/gallery-4.webp" loading="lazy"
-              alt="Fire suppression valve installation"></a>
-          <a href="assets/gallery-5.webp" target="_blank" rel="noopener"><img
-              src="assets/gallery-5.webp" loading="lazy"
-              alt="Cooling towers and crane operation on site"></a>
-          <a href="assets/gallery-6.webp" target="_blank" rel="noopener"><img
-              src="assets/gallery-6.webp" loading="lazy"
-              alt="Landscape lighting installed along a boulevard"></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= WAMEST SOLAR ================= -->
-    <section class="psec psec--dark psolar" id="solar">
-      <div class="wrap">
-        <div class="psec__head" data-reveal>
-          <div class="eyebrow">Green Energy Division</div>
-          <h2 class="sec-title" style="color:#fff">Introducing WAMEST Solar</h2>
-          <p style="color:#C6C6C4">WAMEST's continuous search for
-            environmentally friendly and sustainable energy sources
-            has led to a strategic partnership with Izzat Marji Group to
-            establish WAMEST Solar — a green energy division
-            specializing in integrated solutions in the field of renewable
-            energy and efficacy in the Kingdom.</p>
-        </div>
-
-        <div class="solargrid">
-          <div data-reveal="left">
-            <img src="assets/solar-intro.webp"
-              alt="Rows of solar photovoltaic panels under a clear sky"
-              style="width:100%;height:320px;object-fit:cover">
-          </div>
-          <div data-reveal="right" data-stagger>
-            <h3
-              style="font-family:var(--display);font-size:22px;text-transform:uppercase;color:var(--solar);margin-bottom:14px">
-              Our Services</h3>
-            <p style="color:#C6C6C4;font-size:14.5px;margin-bottom:12px"><strong
-                style="color:#fff">Energy Audit
-                —</strong> inspection, survey and analysis of energy flows in
-              your building to reduce energy input without
-              affecting output.</p>
-            <p style="color:#C6C6C4;font-size:14.5px;margin-bottom:12px"><strong
-                style="color:#fff">Energy Modeling
-                —</strong> predicting energy consumption and life-cycle cost
-              before construction begins, to inform design
-              decisions.</p>
-            <p style="color:#C6C6C4;font-size:14.5px;margin-bottom:12px"><strong
-                style="color:#fff">LEED Consultation
-                —</strong> the most popular and prestigious green building
-              certification worldwide.</p>
-            <p style="color:#C6C6C4;font-size:14.5px;margin-bottom:12px"><strong
-                style="color:#fff">Cleaning —</strong> PV
-              module cleaning by trained staff using the latest cleaning tools
-              and methods.</p>
-            <p style="color:#C6C6C4;font-size:14.5px;margin-bottom:12px"><strong
-                style="color:#fff">Operational &amp;
-                Maintenance —</strong> maintenance services and spare parts
-              solutions to keep PV systems running at the
-              highest standard.</p>
-            <p style="color:#C6C6C4;font-size:14.5px"><strong
-                style="color:#fff">System Daily Monitoring —</strong> access
-              key system data anytime, anywhere, and detect deviations quickly
-              via portals.</p>
-          </div>
-        </div>
-
-        <!-- KSA solar potential -->
-        <div style="margin-top:70px;position:relative" data-reveal>
-          <img src="assets/solar-ksa.webp"
-            alt="Riyadh skyline at night with the Kingdom Centre Tower"
-            style="width:100%;height:340px;object-fit:cover">
-          <div
-            style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,30,30,.15),rgba(30,30,30,.65))">
-          </div>
-          <div
-            style="position:absolute;left:24px;bottom:20px;right:24px;color:#fff;max-width:640px">
-            <p style="font-size:14.5px;margin-bottom:6px">Saudi Arabia is
-              located within the solar belt region and enjoys
-              high solar radiation of up to <strong>6,700 Wh/m² per
-                day.</strong></p>
-            <p style="font-size:14.5px">The Kingdom has set a target to generate
-              <strong>9.5 GW</strong> of renewable
-              energy, with vast areas suitable for solar power plants — using
-              just 0.75% of these areas would be enough to
-              meet the world's energy needs.</p>
-          </div>
-        </div>
-
-        <!-- Solar PV workflow -->
-        <div style="margin-top:70px" data-reveal>
-          <div class="eyebrow">Solar PV</div>
-          <h3 class="sec-title"
-            style="color:#fff;font-size:clamp(26px,3vw,36px)">Project Delivery,
-            Start to Finish</h3>
-          <div class="solar-steps" data-stagger>
-            <div class="solar-step"><b></b><span>Project Study &amp; Site
-                Survey</span></div>
-            <div class="solar-step"><b></b><span>System Design</span></div>
-            <div class="solar-step"><b></b><span>Procurement</span></div>
-            <div class="solar-step"><b></b><span>Installation &amp;
-                Supervision</span></div>
-            <div class="solar-step"><b></b><span>Testing &amp;
-                Commissioning</span></div>
-            <div class="solar-step"><b></b><span>Remote Performance
-                Monitoring</span></div>
-          </div>
-        </div>
-
-        <!-- Projects capacity by sector -->
-        <div
-          style="margin-top:70px;display:grid;grid-template-columns:1fr 1fr;gap:40px"
-          data-reveal data-stagger>
-          <div>
-            <div class="eyebrow">Projects Capacity</div>
-            <h3 class="sec-title"
-              style="color:#fff;font-size:clamp(24px,3vw,32px)">By Sector</h3>
-            <table class="sectortable">
-              <thead>
-                <tr>
-                  <th>Sector</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Commercial</td>
-                </tr>
-                <tr>
-                  <td>Governmental</td>
-                </tr>
-                <tr>
-                  <td>Residential</td>
-                </tr>
-                <tr>
-                  <td>Industrial</td>
-                </tr>
-                <tr>
-                  <td>Education</td>
-                </tr>
-                <tr>
-                  <td>Mosques, Hospitals &amp; Others</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div>
-            <div class="eyebrow">Installed</div>
-            <h3 class="sec-title"
-              style="color:#fff;font-size:clamp(24px,3vw,32px)">Power (MW)</h3>
-            <table class="sectortable">
-              <thead>
-                <tr>
-                  <th>Capacity</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>14.0 MW</td>
-                </tr>
-                <tr>
-                  <td>4.2 MW</td>
-                </tr>
-                <tr>
-                  <td>1.6 MW</td>
-                </tr>
-                <tr>
-                  <td>9.0 MW</td>
-                </tr>
-                <tr>
-                  <td>4.7 MW</td>
-                </tr>
-                <tr>
-                  <td>2.0 MW</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Solar partners -->
-        <div style="margin-top:70px" data-reveal data-stagger>
-          <div class="eyebrow">Our Partners</div>
-          <h3 class="sec-title"
-            style="color:#fff;font-size:clamp(24px,3vw,32px)">Solar Supply
-            Chain</h3>
-          <div
-            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;margin-top:20px">
-            <div>
-              <span
-                style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--solar)">Mounting
-                System</span>
-              <div
-                class="partnerlogos-row"><span>S:FLEX</span><span>Schletter</span><span>Alumil</span></div>
+          <!-- 3 -->
+          <article class="pcard" data-page="1">
+            <a class="pcard__media" href="company-profile.html#projects">
+              <img src="assets/gallery-3.webp" alt="Artal School construction project, Riyadh" loading="lazy">
+            </a>
+            <div class="pcard__body">
+              <span class="pcard__date">Client: MAS Holding Group</span>
+              <h3 class="pcard__title"><a href="company-profile.html#projects">Artal School</a></h3>
+              <p class="pcard__brief">Construction and MEP works delivered in Riyadh, KSA.</p>
+              <a class="pcard__link" href="company-profile.html#projects">Show More
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
             </div>
-            <div>
-              <span
-                style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--solar)">PV
-                Modules</span>
-              <div class="partnerlogos-row"><span>Q CELLS</span><span>Canadian
-                  Solar</span><span>JinkoSolar</span></div>
+          </article>
+
+          <!-- 4 -->
+          <article class="pcard" data-page="1">
+            <a class="pcard__media" href="company-profile.html#projects">
+              <img src="assets/gallery-4.webp" alt="Saudi Cup event infrastructure, Riyadh" loading="lazy">
+            </a>
+            <div class="pcard__body">
+              <span class="pcard__date">Client: Saudi Geo</span>
+              <h3 class="pcard__title"><a href="company-profile.html#projects">Saudi Cup</a></h3>
+              <p class="pcard__brief">Event infrastructure and lighting delivered at the Saudi Cup, Riyadh.</p>
+              <a class="pcard__link" href="company-profile.html#projects">Show More
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
             </div>
-            <div>
-              <span
-                style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--solar)">Developer
-                Partners</span>
-              <div
-                class="partnerlogos-row"><span>TotalEnergies</span><span>Yellow
-                  Door Energy</span></div>
+          </article>
+
+          <!-- 5 -->
+          <article class="pcard" data-page="1">
+            <a class="pcard__media" href="company-profile.html#projects">
+              <img src="assets/gallery-5.webp" alt="CODECO cooling system installation, Rastanourah" loading="lazy">
+            </a>
+            <div class="pcard__body">
+              <span class="pcard__date">Client: Taqnia Energy — SWCC</span>
+              <h3 class="pcard__title"><a href="company-profile.html#projects">CODECO Cooling System</a></h3>
+              <p class="pcard__brief">Cooling system installation delivered in Rastanourah, KSA.</p>
+              <a class="pcard__link" href="company-profile.html#projects">Show More
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
             </div>
-            <div>
-              <span
-                style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--solar)">Monitoring
-                System</span>
-              <div class="partnerlogos-row"><span>Meteocontrol</span></div>
+          </article>
+
+          <!-- 6 -->
+          <article class="pcard" data-page="1">
+            <a class="pcard__media" href="company-profile.html#projects">
+              <img src="assets/gallery-6.webp" alt="Lighting and landscape project, Diplomatic Quarter Riyadh" loading="lazy">
+            </a>
+            <div class="pcard__body">
+              <span class="pcard__date">Client: Royal Commission of Riyadh City</span>
+              <h3 class="pcard__title"><a href="company-profile.html#projects">Lighting &amp; Landscape Projects</a></h3>
+              <p class="pcard__brief">Several lighting and landscape projects delivered in the Diplomatic Quarter, Riyadh.</p>
+              <a class="pcard__link" href="company-profile.html#projects">Show More
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
             </div>
-            <div>
-              <span
-                style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--solar)">Inverters
-                &amp; Cables</span>
-              <div class="partnerlogos-row"><span>SMA</span><span>KBE
-                  Berlin</span></div>
+          </article>
+
+          <!-- 7 -->
+          <article class="pcard" data-page="2">
+            <a class="pcard__media" href="company-profile.html#projects">
+              <img src="assets/gallery-1.webp" alt="Dammam Airport baggage handling MEP works" loading="lazy">
+            </a>
+            <div class="pcard__body">
+              <span class="pcard__date">Client: VANDERLANDE</span>
+              <h3 class="pcard__title"><a href="company-profile.html#projects">Dammam Airport — KFIA</a></h3>
+              <p class="pcard__brief">MEP installation at King Fahad International Airport's baggage handling infrastructure, Dammam.</p>
+              <a class="pcard__link" href="company-profile.html#projects">Show More
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
             </div>
-          </div>
+          </article>
+
+          <!-- 8 -->
+          <article class="pcard" data-page="2">
+            <a class="pcard__media" href="company-profile.html#projects">
+              <img src="assets/gallery-2.webp" alt="IKEA and Total Energies solar project, Riyadh" loading="lazy">
+            </a>
+            <div class="pcard__body">
+              <span class="pcard__date">Client: IKEA / Total Energies</span>
+              <h3 class="pcard__title"><a href="company-profile.html#projects">IKEA / Total Energies</a></h3>
+              <p class="pcard__brief">Solar and energy works delivered in Riyadh, KSA.</p>
+              <a class="pcard__link" href="company-profile.html#projects">Show More
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- 9 -->
+          <article class="pcard" data-page="2">
+            <a class="pcard__media" href="company-profile.html#projects">
+              <img src="assets/gallery-3.webp" alt="AITD Heliport operation and maintenance, Riyadh" loading="lazy">
+            </a>
+            <div class="pcard__body">
+              <span class="pcard__date">Client: Vinnell Arabia Company</span>
+              <h3 class="pcard__title"><a href="company-profile.html#projects">AITD Heliport O&amp;M</a></h3>
+              <p class="pcard__brief">Operation and maintenance of the AITD Heliport site, Riyadh.</p>
+              <a class="pcard__link" href="company-profile.html#projects">Show More
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- 10 -->
+          <article class="pcard" data-page="2">
+            <a class="pcard__media" href="company-profile.html#projects">
+              <img src="assets/gallery-4.webp" alt="Solar and energy efficiency projects across Saudi Arabia" loading="lazy">
+            </a>
+            <div class="pcard__body">
+              <span class="pcard__date">Client: National Energy Services Company</span>
+              <h3 class="pcard__title"><a href="company-profile.html#projects">Solar &amp; EE Projects</a></h3>
+              <p class="pcard__brief">Solar and energy efficiency projects delivered across the Kingdom.</p>
+              <a class="pcard__link" href="company-profile.html#projects">Show More
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- 11 -->
+          <article class="pcard" data-page="2">
+            <a class="pcard__media" href="company-profile.html#projects">
+              <img src="assets/gallery-5.webp" alt="Al Anud Charity Administration Building, Riyadh" loading="lazy">
+            </a>
+            <div class="pcard__body">
+              <span class="pcard__date">Client: Princess Al-Anud Administration</span>
+              <h3 class="pcard__title"><a href="company-profile.html#projects">Al Anud Charity Building</a></h3>
+              <p class="pcard__brief">Administration building works delivered in Riyadh, KSA.</p>
+              <a class="pcard__link" href="company-profile.html#projects">Show More
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- 12 -->
+          <article class="pcard" data-page="2">
+            <a class="pcard__media" href="company-profile.html#projects">
+              <img src="assets/gallery-6.webp" alt="Master Plan Lighting Pilot Project, Diplomatic Quarter Riyadh" loading="lazy">
+            </a>
+            <div class="pcard__body">
+              <span class="pcard__date">Client: Diplomatic Quarter General Authority</span>
+              <h3 class="pcard__title"><a href="company-profile.html#projects">Master Plan Lighting Pilot</a></h3>
+              <p class="pcard__brief">Lighting pilot project delivered in the Diplomatic Quarter, Riyadh.</p>
+              <a class="pcard__link" href="company-profile.html#projects">Show More
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
+            </div>
+          </article>
+
         </div>
 
-        <!-- Regional projects -->
-        <div style="margin-top:70px" data-reveal>
-          <div class="eyebrow">Regional Footprint</div>
-          <h3 class="sec-title"
-            style="color:#fff;font-size:clamp(24px,3vw,32px)">Our Projects</h3>
-          <div class="regiongrid" data-stagger>
-            <div class="regioncard"><img src="assets/solar-uae-kuwait.webp"
-                alt="Large rooftop solar installation in the UAE and Kuwait"><span>UAE
-                &amp; Kuwait</span></div>
-            <div class="regioncard"><img src="assets/solar-jordan.webp"
-                alt="Aerial view of a rooftop solar array in Jordan"><span>Jordan</span></div>
-            <div class="regioncard" style="grid-column:1/-1"><img
-                src="assets/solar-home.webp"
-                alt="Residential rooftop solar panel installation"><span>Home
-                Use</span></div>
-          </div>
+        <div class="pager" id="pager">
+          <button class="pager__arrow" id="pagerPrev" aria-label="Previous page">
+            <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" /></svg>
+          </button>
+          <div class="pager__pages" id="pagerPages"></div>
+          <button class="pager__arrow" id="pagerNext" aria-label="Next page">
+            <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" /></svg>
+          </button>
         </div>
       </div>
     </section>
 
-    <!-- ================= CTA BAND ================= -->
-    <section class="pcta">
-      <div class="wrap">
-        <h2>Ready to start your next project?</h2>
-        <p>From MEP contracting to full-scale solar EPC delivery, WAMEST's
-          engineering team is ready to scope your
-          requirements.</p>
-        <a href="index.html#contact" class="btn btn--ghost">Request a Quote</a>
-      </div>
-    </section>
 
     <!-- ================= BACK TO TOP ================= -->
     <button class="totop" id="totop" aria-label="Back to top">
-      <svg viewBox="0 0 24 24">
-        <path d="M12 19V5M5 12l7-7 7 7" />
-      </svg>
+      <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7" /></svg>
     </button>
 
-    <!-- ================= FOOTER ================= -->
     <footer class="footer" id="contact">
       <div class="wrap">
         <div class="footer__grid" data-reveal data-stagger>
@@ -3369,9 +2927,9 @@
               <li><a href="index.html">Home</a></li>
               <li><a href="index.html#about">About Us</a></li>
               <li><a href="index.html#services">Services</a></li>
-              <li><a href="company-profile.html" aria-current="page">Company's
+              <li><a href="company-profile.html">Company's
                   Profile</a></li>
-              <li><a href="our-projects.html">Our Projects</a></li>
+              <li><a href="our-projects.html" aria-current="page">Our Projects</a></li>
               <li><a href="index.html#team">Our Team</a></li>
               <li><a href="index.html#partners">Partners</a></li>
             </ul>
@@ -3549,20 +3107,66 @@
       }));
     }
 
-      const nav2 = document.getElementById('pnav');
-      const navSection = document.getElementById('panv-section');
 
-      const navTop = navSection.offsetTop;
+    /* ---- projects pager ---- */
+    (() => {
+      const grid = document.getElementById('pgrid');
+      const pagesWrap = document.getElementById('pagerPages');
+      const prevBtn = document.getElementById('pagerPrev');
+      const nextBtn = document.getElementById('pagerNext');
+      if (!grid) return;
 
-      window.addEventListener('scroll', () => {
-          if (window.scrollY >= navTop) {
-              nav2.classList.add('fixed');
-          } else {
-              nav2.classList.remove('fixed');
-          }
-      });
+      const cards = Array.from(grid.querySelectorAll('.pcard'));
+      const totalPages = Math.max(...cards.map(c => parseInt(c.dataset.page, 10)));
+      let current = 1;
+
+      function render() {
+        cards.forEach(c => {
+          const show = parseInt(c.dataset.page, 10) === current;
+          c.style.display = show ? '' : 'none';
+        });
+        grid.setAttribute('data-animating', '');
+        requestAnimationFrame(() => {
+          void grid.offsetWidth;
+          grid.removeAttribute('data-animating');
+        });
+        updatePager();
+      }
+
+      function updatePager() {
+        Array.from(pagesWrap.children).forEach((b, i) => {
+          b.classList.toggle('is-active', i + 1 === current);
+        });
+        prevBtn.disabled = current === 1;
+        nextBtn.disabled = current === totalPages;
+      }
+
+      function buildPager() {
+        pagesWrap.innerHTML = '';
+        for (let i = 1; i <= totalPages; i++) {
+          const b = document.createElement('button');
+          b.textContent = i;
+          b.setAttribute('aria-label', `Go to page ${i}`);
+          b.addEventListener('click', () => goTo(i));
+          pagesWrap.appendChild(b);
+        }
+      }
+
+      function goTo(page) {
+        current = Math.min(Math.max(page, 1), totalPages);
+        render();
+        const section = document.getElementById('projects-grid');
+        const top = section.getBoundingClientRect().top + window.scrollY - 100;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+
+      prevBtn.addEventListener('click', () => goTo(current - 1));
+      nextBtn.addEventListener('click', () => goTo(current + 1));
+
+      buildPager();
+      render();
+    })();
   </script>
 
   </body>
-
 </html>
